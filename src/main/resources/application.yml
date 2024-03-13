@@ -1,0 +1,7 @@
+spring:
+    application:
+        name: webdemo1303
+    datasource:
+        url: jdbc:postgresql://localhost:5432/demogfl
+        username: postgres
+        password: 123
