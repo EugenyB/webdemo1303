@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Course teachers</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/dist/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}">
+</head>
+<body>
+<h1 class="text-center" th:text="${course.title}">Course teachers</h1>
+<div class="container text-center">
+    <div class="row justify-content-evenly">
+        <div class="col-6">
+            <h2 class="text-center">Teachers</h2>
+            <table class="table table-sm table-hover table-striped">
+                <thead class="table-warning">
+                <tr>
+<!--                    <th>#</th>-->
+                    <th>Name</th>
+                    <th>Exp</th>
+                    <th><i class="bi bi-arrow-right-circle"></i></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="t : ${teachers}">
+<!--                    <td th:text="${t.id}"></td>-->
+                    <td th:text="${t.name}"></td>
+                    <td th:text="${t.experience}"></td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" th:href="@{/courses/teacher/remove/{course_id}/{teacher_id}(course_id=${course.id}, teacher_id=${t.id})}">
+                            <i class="bi bi-arrow-right-circle"></i> </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-6">
+            <h2 class="text-center">Available</h2>
+            <table class="table table-sm table-hover table-striped">
+                <thead class="table-info">
+                <tr>
+<!--                    <th>#</th>-->
+                    <th><i class="bi bi-arrow-left-circle"></i></th>
+                    <th>Name</th>
+                    <th>Exp</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="a : ${available}">
+                    <td>
+                        <a class="btn btn-sm btn-info" th:href="@{/courses/teacher/add/{course_id}/{teacher_id}(course_id=${course.id}, teacher_id=${a.id})}">
+                            <i class="bi bi-arrow-left-circle"></i> </a>
+                    </td>
+<!--                    <td th:text="${a.id}"></td>-->
+                    <td th:text="${a.name}"></td>
+                    <td th:text="${a.experience}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script th:src="@{/webjars/bootstrap/5.3.3/dist/js/bootstrap.bundle.js}"></script>
+</body>
+</html>

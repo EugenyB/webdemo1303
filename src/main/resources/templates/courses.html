@@ -32,7 +32,7 @@
                 <td th:text="${c.title}"></td>
                 <td th:text="${c.length}"></td>
                 <td>
-                    <a href="#" class="btn btn-sm btn-info">
+                    <a th:href="@{/teachers/course/{course_id}(course_id=${c.id})}" class="btn btn-sm btn-info">
                         <i class="bi bi-eyeglasses"></i>
                     </a>
                 </td>
